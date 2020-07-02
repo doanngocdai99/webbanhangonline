@@ -1,0 +1,78 @@
+﻿@using doan_dbsm.Models.DATA;
+@model IEnumerable<ORDER>
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Areas/admin/Views/Shared/Sharelayout.cshtml";
+    WebGrid grid = new WebGrid(source: Model, rowsPerPage: 2);
+}
+
+
+
+<h4 class="mt-3">
+    <span>Order</span>
+  
+</h4>
+
+
+<div class="d-flex align-items-center">
+    <form class="ml-auto d-flex" action="/admin/quanlysanpham/search" method="post">
+        <input type="text" placeholder="Search" class="form-control" style="border-radius:5px;" name="search" value="@ViewBag.search" />
+        <button class="btn btn-primary ml-2" style="border-radius:5px" ; type="submit">Search</button>
+    </form>
+</div>
+
+
+
+
+
+<table class="table mt-2">
+    <caption>List of Order</caption>
+    <thead>
+        <tr>
+            <th>Id</th>
+            <th>Name customer</th>
+            <th>Quantity</th>
+            <th>Date time</th>
+            <th>status</th>
+            <th>Action</th>
+
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+        <tr>
+
+            <td>@item.order_ID</td>
+            <td>@item.CUSTUMER.name</td>
+            <td>@item.DETAIL_ORDERs.Sum(n => n.Quantity)</td>
+            <td>@item.Datetime</td>
+            <td>@item.status</td>
+
+            <td>
+
+                <a href="@Url.Action("Bill","Quanlyhoadon",new{@madonhang=item.order_ID })" class="table-link">
+                    <span class="fa-stack">
+                        <i class="fa fa-square fa-stack-2x"></i>
+                        <i class="fa fa-search-plus fa-stack-1x fa-inverse"></i>
+                    </span>
+                </a>
+                @*<a href="#" class="table-link">
+                    <span class="fa-stack">
+                        <i class="fa fa-square fa-stack-2x"></i>
+                        <i class="fa fa-pencil fa-stack-1x fa-inverse"></i>
+                    </span>
+                </a>*@
+                <a href="@Url.Action("deleteorder","Quanlyhoadon",new{@madonhang=item.order_ID })" class="table-link danger">
+                    <span class="fa-stack">
+                        <i class="fa fa-square fa-stack-2x"></i>
+                        <i class="fa fa-trash-o fa-stack-1x fa-inverse"></i>
+                    </span>
+                </a>
+            </td>
+        </tr>
+        }
+
+
+    </tbody>
+</table>

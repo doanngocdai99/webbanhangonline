@@ -1,0 +1,89 @@
+﻿@using doan_dbsm.Models.DATA;
+@model IEnumerable<PRODUCT>
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Areas/admin/Views/Shared/Sharelayout.cshtml";
+    WebGrid grid = new WebGrid(source: Model, rowsPerPage: 2);
+}
+
+@*@grid.GetHtml(tableStyle: "table table-hover",
+        headerStyle: "gridHead" ,
+        footerStyle: "gridFooter",
+        rowStyle: "gridRow",
+        alternatingRowStyle: "gridAltRow",
+        columns: grid.Columns( grid.Column("product_id", "Id"),
+     grid.Column("product_Name", "Name"),
+    grid.Column("SizeM", "SizeM"),
+    grid.Column("SizeL", "SizeL"),
+    grid.Column("SizeXL", "Action")) )*@
+
+
+<h4 class="mt-3">
+    <span>PRODUCT</span>
+    <a class="btn btn-primary text-light" style="padding:2px" href="@Url.Action("taomoi","quanlysanpham")">New</a>
+</h4>
+
+
+ <div class="d-flex align-items-center">
+        <form class="ml-auto d-flex" action="/admin/quanlysanpham/search" method="post">
+            <input type="text" placeholder="Search" class="form-control" style="border-radius:5px;" name="search" value="@ViewBag.search" />
+            <button class="btn btn-primary ml-2" style="border-radius:5px" ; type="submit">Search</button>
+        </form>
+ </div>
+
+
+
+
+
+<table class="table mt-2">
+    <caption>List of Product</caption>
+    <thead>
+        <tr>
+            <th>Id</th>
+            <th>Name</th>
+            <th>Kind</th>
+            <th>Count</th>
+            <th>Image</th>
+            <th>Action</th>
+
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+
+                <td>@item.product_id</td>
+                <td>@item.product_Name</td>
+                <td>@item.PRODUCT_GROUP.gr_groupname</td>
+                <td>@item.count</td>
+                <td>
+                    <img src="@Url.Content("~/images/"+item.image)" alt="IMG-BANNER" width="50" style="border-radius:50%">
+                 
+                </td>
+                <td>
+                    @*<a href="#" class="table-link">
+                        <span class="fa-stack">
+                            <i class="fa fa-square fa-stack-2x"></i>
+                            <i class="fa fa-search-plus fa-stack-1x fa-inverse"></i>
+                        </span>
+                    </a>*@
+                    <a href="@Url.Action("edit","quanlysanpham",new {@product_id=item.product_id })" class="table-link">
+                        <span class="fa-stack">
+                            <i class="fa fa-square fa-stack-2x"></i>
+                            <i class="fa fa-pencil fa-stack-1x fa-inverse"></i>
+                        </span>
+                    </a>
+                    <a href="@Url.Action("delete","quanlysanpham",new {@product_id=item.product_id })" class="table-link danger">
+                        <span class="fa-stack">
+                            <i class="fa fa-square fa-stack-2x"></i>
+                            <i class="fa fa-trash-o fa-stack-1x fa-inverse"></i>
+                        </span>
+                    </a>
+                </td>
+            </tr>
+        }
+
+
+    </tbody>
+</table>
