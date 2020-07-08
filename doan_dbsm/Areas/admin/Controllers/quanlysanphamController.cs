@@ -12,7 +12,7 @@ namespace doan_dbsm.Areas.admin.Controllers
     public class quanlysanphamController : Controller
     {
         SHOPONLINE_CONTEXT db = new SHOPONLINE_CONTEXT();
-
+      
         // GET: admin/quanlysanpham
         public ActionResult Index()
         {

@@ -34,28 +34,28 @@
 <!-- Body -->
 <body>
 
-    <h1>EXISTING LOGIN FORM</h1>
+    
 
     <div class="w3layoutscontaineragileits">
-        <h2>Login here</h2>
+        <h2>Đăng Nhập</h2>
         @using (Html.BeginForm("dangnhap", "Login"))
         {
-            <input type="text" Name="name" placeholder="Name">
-            <input type="password" Name="pass" placeholder="Password" required="">
+            <input type="text" Name="name" placeholder="Tên Đăng Nhập">
+            <input type="password" Name="pass" placeholder="Mật Khẩu" required="">
             <ul class="agileinfotickwthree">
                 <li>
                     <input type="checkbox" id="brand1" value="" name="customer">
-                    <label for="brand1"><span></span>customer</label>
+                    <label for="brand1"><span></span>Khách</label>
 
                     <input type="checkbox" id="brand2" value="" name="admin" class="" style="margin-left:-8px">
                     <label for="brand2" style="margin-left:-8px"><span></span>admin</label>
-                    <a href="@Url.Action("quenmatkhau","Login")">Forgot password?</a>
+                    <a href="@Url.Action("quenmatkhau","Login")">Quên mật khẩu</a>
                 </li>
                
             </ul>
             <div class="aitssendbuttonw3ls">
-                <input type="submit" value="LOGIN">
-                <p> To register new account <span>→</span> <a class="w3_play_icon1" href="#small-dialog1"> Click Here</a></p>
+                <input type="submit" value="Đăng nhập">
+                <p> Tạo Tài Khoản Mới <span>→</span> <a class="w3_play_icon1" href="#small-dialog1"> Click vào đây</a></p>
                 <div class="clear"></div>
             </div>
         }
@@ -67,13 +67,13 @@
     <div id="small-dialog1" class="mfp-hide">
         <div class="contact-form1">
             <div class="contact-w3-agileits">
-                <h3>Register Form</h3>
+                <h3>Mẫu Đăng Ký</h3>
                 @using (Html.BeginForm())
                 {
 
                     <div class="form-sub-w3ls">
 
-                        <input placeholder="User Name" type="text" required="" name="name">
+                        <input placeholder="Tên tài khoản" type="text" required="" name="name">
                         <div class="icon-agile">
                             <i class="fa fa-user" aria-hidden="true"></i>
                         </div>
@@ -85,22 +85,22 @@
                         </div>
                     </div>
                     <div class="form-sub-w3ls">
-                        <input placeholder="Password" type="password" required="" name="pass">
+                        <input placeholder="Mật khẩu" type="password" required="" name="pass">
                         <div class="icon-agile">
                             <i class="fa fa-unlock-alt" aria-hidden="true"></i>
                         </div>
                     </div>
                     <div class="form-sub-w3ls">
-                        <input placeholder="Confirm Password" type="password" required="">
+                        <input placeholder="Xác nhận mật khẩu" type="password" required="">
                         <div class="icon-agile">
                             <i class="fa fa-unlock-alt" aria-hidden="true"></i>
                         </div>
                     </div>
                     <div class="login-check">
-                        <label class="checkbox"><input type="checkbox" name="checkbox" checked="">I Accept Terms & Conditions</label>
+                        <label class="checkbox"><input type="checkbox" name="checkbox" checked="">Tôi đồng ý với Điều Khoản và Điều Kiện</label>
                     </div>
                     <div class="submit-w3l">
-                        <input type="submit" value="Register">
+                        <input type="submit" value="Đăng ký">
                     </div>
 
                 }

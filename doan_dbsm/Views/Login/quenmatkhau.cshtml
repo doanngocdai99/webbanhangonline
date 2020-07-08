@@ -33,10 +33,10 @@
 <!-- Body -->
 <body>
 
-    <h1>EXISTING FORGET FORM</h1>
+    <h1></h1>
 
     <div class="w3layoutscontaineragileits">
-        <h2>Get the password here</h2>
+        <h2>Lấy mật khẩu tại đây</h2>
         @using (Html.BeginForm("dangnhap", "Login"))
         {
             <input type="email" Name="name" placeholder="EMAIL">
@@ -44,13 +44,13 @@
                 <li>
                     <input type="checkbox" id="brand1" value="">
                     <a href="~/Login/Index">
-                        Already have an account? Login
+                        Có tài khoản rồi? Đăng nhập
                     </a>
                 </li>
             </ul>
             <div class="aitssendbuttonw3ls">
-                <input type="submit" value="GET THE PASSWORD">
-                <p> To register new account <span>→</span> <a class="w3_play_icon1" href="#small-dialog1"> Click Here</a></p>
+                <input type="submit" value="Lấy lại mật khẩu">
+                <p> tạo tài khoản mới <span>→</span> <a class="w3_play_icon1" href="#small-dialog1"> Click tại đây</a></p>
                 <div class="clear"></div>
             </div>
         }

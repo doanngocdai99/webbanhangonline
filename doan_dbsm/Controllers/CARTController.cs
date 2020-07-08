@@ -153,9 +153,13 @@ namespace doan_dbsm.Controllers
 
             dondathang.custumerid = id;
             db.ORDERs.Add(dondathang);
+           
            List<ItemCART> lstitem = laygiohang();
             foreach (var item in lstitem)
             {
+                PRODUCT spedit = db.PRODUCTs.Find(item.masp);
+                spedit.count = spedit.count - item.soluong;
+
                 DETAIL_ORDER ctddh = new DETAIL_ORDER();
                 ctddh.product_id = item.masp;
                 ctddh.order_ID = dondathang.order_ID;
