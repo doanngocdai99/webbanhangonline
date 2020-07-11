@@ -24,14 +24,38 @@ namespace doan_dbsm.Controllers
         {
 
             ViewBag.thongbao = "them tai khoan thanh cong";
-            db.CUSTUMERs.Add(custumer);
+            
+            GuiEmail("Thong Bao", custumer.email, "doanngocdai99@gmail.com", "ngocdai300699", "Mã xác nhận: 12345" );
+            Session["name"] = custumer.name;
 
-
-            db.SaveChanges();
+            Session["email"] = custumer.email;
+            Session["pass"] = custumer.pass;
+  
             //co the lay bang form conection 
-            return View();
+            return View("xacnhanmatkhau");
 
         }
+        public ActionResult xacnhanmatkhau(string mxn)
+        {
+            if (mxn=="12345")
+            {
+                CUSTUMER custumer = new CUSTUMER();
+                custumer.name = Session["name"].ToString();
+                custumer.pass = Session["pass"].ToString();
+                custumer.email = Session["email"].ToString();
+                db.CUSTUMERs.Add(custumer);
+                db.SaveChanges();
+                return View("Index");
+            }
+
+            Session["name"] = null;
+            Session["pass"] = null;
+            Session["email"] = null;
+            //co the lay bang form conection 
+            return View("themtaikhoanthatbai");
+
+        }
+
         [HttpPost]
         public ActionResult dangnhap(FormCollection f)
 

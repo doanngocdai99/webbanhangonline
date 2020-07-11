@@ -539,6 +539,8 @@
     <Content Include="Views\Login\dangnhap.cshtml" />
     <Content Include="Views\Login\quenmatkhau.cshtml" />
     <None Include="Properties\PublishProfiles\FolderProfile.pubxml" />
+    <Content Include="Views\Login\xacnhanmatkhau.cshtml" />
+    <Content Include="Views\Login\themtaikhoanthatbai.cshtml" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

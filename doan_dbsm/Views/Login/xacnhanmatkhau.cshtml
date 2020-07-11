@@ -1,0 +1,26 @@
+﻿
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>xacnhanmatkhau</title>
+</head>
+<body>
+    <div>
+        <h2>Xác nhận mật khẩu </h2>
+
+        @using (Html.BeginForm("xacnhanmatkhau", "Login"))
+        {
+            <label for="fname">Mã Xác nhận </label><br>
+            <input type="text" id="fname" name="mxn"><br>
+
+            <input type="submit" value="Xác nhận">
+        }
+        </div>
+</body>
+</html>
